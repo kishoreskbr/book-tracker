@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<div class="book-list">
+  <% books.forEach(book => { %>
+    <div class="book-item">
+      <img src="<%= book.cover_url %>" alt="Book Cover">
+      <h2><%= book.title %></h2>
+      <p>Author: <%= book.author %></p>
+      <p>Rating: <%= book.rating %> / 5</p>
+      <p>Review: <%= book.review %></p>
+      <p>Date Read: <%= book.date_read.toDateString() %></p>
+      <a href="/books/<%= book.id %>/edit">Edit</a>
+      <form action="/books/<%= book.id %>/delete" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>
+
+
